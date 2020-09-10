@@ -1,0 +1,24 @@
+<h1>
+  Observable Example By Malhar
+</h1>
+<div>
+  <button (click)="onMethod1()">
+    Click
+  </button>
+</div>
+<div>
+  <table>
+    <tr>
+      <th *ngFor="let item of myData">
+        {{item.id}}
+      </th>
+    </tr>
+
+    <tr>
+      <td *ngFor="let item of myData">
+        {{item.username}}
+      </td>
+    </tr>
+  </table>
+</div>
+
