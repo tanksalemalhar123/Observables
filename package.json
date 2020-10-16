@@ -20,9 +20,11 @@
     "@angular/platform-browser": "^6.1.10",
     "@angular/platform-browser-dynamic": "^6.1.10",
     "@angular/router": "^6.1.10",
+    "bootstrap": "^3.3.7",
     "core-js": "^2.6.11",
     "rxjs": "6.3.3",
     "rxjs-compat": "6.3.3",
+    "sweetalert": "^2.1.2",
     "zone.js": "^0.8.29"
   },
   "devDependencies": {

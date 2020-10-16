@@ -1,24 +1,114 @@
-<h1>
-  Observable Example By Malhar
-</h1>
-<div>
-  <button (click)="onMethod1()">
-    Click
-  </button>
-</div>
-<div>
-  <table>
-    <tr>
-      <th *ngFor="let item of myData">
-        {{item.id}}
-      </th>
-    </tr>
+<div  class="container p-3" style="background: white;margin-top: 1.5em;">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 panel panel-default">
+        
+      <form [formGroup]="form">
+       
+          <div class="card-header"> 
+             <h1 style="font-weight: bold;font-size: 2.5em;padding-top: 1em;text-align: center;">StarkFlow Todo App</h1>
+             <br/>
+          
+            </div>
+          <div class="card-body">   
+           
+            <hr>
+            <div class="col-lg-12 col-md-12 col-sm-12 panel panel-default">
+            <div class="row">
+              <div class="form-group col-lg-2 col-md-2">
+               
+              </div>
+                <div class="form-group col-lg-3 col-md-3">
+                    <label>Title</label> <span class="estric" style="color: red;font-size: 1.3em">*</span>
+                    <input class="form-control" formControlName="title" type="text" maxlength="15"  #title>
+                    <span class="text-danger" *ngIf="form.controls['title'].touched && form.controls['title'].hasError('required')">
+                     Title is required </span>
+                  </div>
+                  <div class="form-group col-lg-3 col-md-3">
+                    <label>Description</label> <span class="estric" style="color: red;font-size: 1.3em">*</span>
+                    <input class="form-control" formControlName="desciption" type="text" maxlength="25"  #desciption>
+                    <span class="text-danger" *ngIf="form.controls['desciption'].touched && form.controls['desciption'].hasError('required')">
+                      Desciption is required </span>
+                  </div>
+                  <div class="form-group col-lg-1 col-md-1" style="display: inline;">
+                      <label></label> <span class="estric" style="color: red;font-size: 1.3em"></span>
+                        <button class="form-control" style="background: #428BCA;color: white;" [disabled]="!form.valid" (click)="createTodo(title.value,desciption.value)"><i class="fa fa-plus"></i></button>
+                    </div>
+                    <div class="form-group col-lg-1 col-md-1" style="display: inline;">
+                      <label></label> <span class="estric" style="color: red;font-size: 1.3em"></span>
+                        <button class="form-control" style="background: #428BCA;color: white;" (click)="refreshToDo()"><i class="fa fa-refresh"></i></button>
+                    </div>
+                  </div>
+                  
+            </div>
+          </div>
 
-    <tr>
-      <td *ngFor="let item of myData">
-        {{item.username}}
-      </td>
-    </tr>
-  </table>
+
+          <div class="col-lg-12 col-md-12 col-sm-12 panel panel-default">
+            <h1 style="font-weight: bold;font-size: 1.5em;padding-top: 1em;text-align: center;text-decoration: underline;">To Do List</h1>
+            <br/>
+            <div class="row">
+              <div class='table-responsive'>  
+                <table class='table'>  
+                    <thead>  
+                        <tr>  
+                          <th style="text-align: center;">ID</th>  
+                            <th style="text-align: center;">Title</th>  
+                            <th style="text-align: center;">Description</th>  
+                           
+                        </tr>  
+                    </thead>  
+                    <tbody style="text-align: center;">  
+                        <tr *ngFor="let todo of todos;">  
+                            <td>{{todo.id}}</td> 
+                            <td>{{todo.title}}</td>  
+                            <td>{{todo.description}}</td> 
+                            <td>
+                              
+                              <div class="form-group col-lg-4 col-md-4" style="display: inline;">
+                                <label></label> <span class="estric" style="color: red;font-size: 1.3em"></span>
+                                  <button class="form-control" style="background: #428BCA;color: white;margin:1em" (click)="deleteTodo(todo.id)"><i class="fa fa-trash"></i></button>
+                              </div>
+                            </td>
+                             
+                             </tr>  
+                    </tbody>  
+                </table>  
+            </div>  
+            </div>
+         
+                  
+            </div>
+      </form>
+    </div>
+  </div>
 </div>
 
+
+<style>
+  .boxDesign
+{margin-bottom: 0px;
+    border: 1px dashed;
+    text-align: center;
+    border-color: #bbb;
+    padding: 10px;
+    box-shadow: 1px 2px 4px #aaa;
+    background: rgba(225,225,225,0.2);
+    box-shadow: 0 0 black;
+}
+
+</style>
+
+
+  <style>
+    .boxDesign
+  {margin-bottom: 0px;
+      border: 1px dashed;
+      text-align: center;
+      border-color: #bbb;
+      padding: 10px;
+      box-shadow: 1px 2px 4px #aaa;
+      background: rgba(225,225,225,0.2);
+      box-shadow: 0 0 black;
+  }
+  
+  </style>
